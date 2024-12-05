@@ -1,0 +1,248 @@
+<%- include('../includes/header.ejs', {titulo: 'Página de Administração' }) %>
+
+    <main class="container-fluid">
+
+        <!-- Bem vindo -->
+        <div class="text-center mt-5">
+            <h1 id="dashboard">AgriTech</h1>
+            <span>Bem-Vindo ao Sistema AgriTech</span>
+        </div>
+
+        <!--Informativo-->
+        <section class="d-flex align-items-center w-100 mt-3">
+            <div class="d-flex flex-column w-50 p-3 gap-4">
+                <h2>Bem-vindo à AgriTech Solutions!</h2>
+                <h4 class="text-center">Olá, <%= nomeUsuario %>! Você se encontra agora na <strong>Dashboard</strong>;
+                </h4>
+                <span class="text-center">
+                    Nesta página são encontrados dados relevantes, como o número de produtos,<br>
+                    categorias e usuários cadastrados.
+                </span>
+                <h6 class="text-center">Colha mais com quem entende do campo. Cultive conosco!</h6>
+            </div>
+            </div>
+            <br>
+            <div class="banner_imagens">
+                <figure><img src="../img/mao_terra.jpg" alt=""></figure>
+                <figure><img src="../img/foto1.jpg" alt=""></figure>
+                <figure><img src="../img/foto2.jpg" alt=""></figure>
+                <figure><img src="../img/foto3.jpg" alt=""></figure>
+                <figure><img src="../img/trigo.jpg" alt=""></figure>
+                <figure><img src="../img/298c1d23e51f9d15c3a472c24b851fa8.jpg" alt=""></figure>
+                <figure><img src="../img/aa067f8ada6a1d0b1333a2e6faba9e5f.jpg" alt=""></figure>
+                <figure><img src="../img/5dcb747387bbcb7b962e24c4e2ff8c25.jpg" alt=""></figure>
+                <figure><img src="../img/b8a37985105e70064183c02f72550676.jpg" alt=""></figure>
+            </div>
+        </section>
+        <br>
+
+        <!-- Cards principais com valores-->
+        <section class="row mb-4 text-center">
+            <section class="d-flex justify-content-center container-cards-info">
+                <!-- Card Total de Produtos -->
+                <div class="col-md-3 text-center d-flex justify-content-center">
+                    <div class="card shadow-sm card-dec width-maior">
+                        <div class="card-body">
+                            <h2 class="card-title">Total de variedade produtos</h2>
+                            <p class="card-text display-4">
+                                <%=totalProdutos%>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            
+
+            <!-- Card Total de Categorias -->
+            <div class="col-md-3 text-center d-flex justify-content-center">
+                <div class="card shadow-sm card-dec width-maior">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <h2 class="card-title">Total de categorias</h2>
+                        <p class="card-text display-4">
+                            <%= totalCategorias%>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Valor Total no Estoque-->
+            <div class="col-md-5 text-center d-flex justify-content-center">
+                <div class="card shadow-sm card-dec width-maior">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <h2 class="card-title">Valor total em estoque</h2>
+                        <p class="card-text display-5">R$<%= totalEstoque %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card n de produtos com Estoque minimo-->
+            <!--<div class="col-md-3 text-center d-flex justify-content-center">
+                <div class="card shadow-sm card-dec width-maior">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <h2 class="card-title">Nº de produtos em estoque Mínimo </h2>
+                        <p class="card-text display-4">
+                            
+                        </p>
+                    </div>
+                </div>
+            </div>-->
+        </section>
+
+            <!-- cards GRAFICOS!!!! -->
+
+
+            <!-- exibindo produtos igual ou abaixo ao valor minimo necessario em estoque -->
+            <section class="card mt-4">
+                <div class="card-header bg-secondary text-white">Produtos abaixo do estoque mínimo</div>
+                <div class="card-body">
+                    <table class="table-striped dados-table">
+                        <thead>
+                            <tr>
+                                <th>Imagem</th>
+                                <th>Nome</th>
+                                <th>Categoria</th>
+                                <th>Estoque Mínimo</th>
+                                <th>Estoque Atual</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- vou ter que usar for e condicoes ejs aqui. se o estoque < estoque minimo, o produto aparece -->
+                            <% for (produto of produtos) { %>
+                                <tr>
+                                    <td class="container-td-img">
+                                        <img src="<%= produto.imagem %>" alt="imagem_produto" />
+                                    </td>
+                                    <td>
+                                        <%= produto.nome_produto %>
+                                    </td>
+                                    <td>
+                                        <%= produto.nome_categoria %>
+                                    </td>
+                                    <td>
+                                        <%= produto.estoque_minimo %>
+                                    </td>
+                                    <td>
+                                        <%= produto.estoque %>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="container-card">
+
+            </section>
+
+            <br>
+
+            <div class="container-card justify-content-center d-flex flex-row mb-4">
+                <a class="text-decoration-none" href="/produtos/">
+                    <!-- <div class="col-3"> -->
+                    <div class="row text-center fundo1 card-fundo align-items-end">
+                        <div class=" p-4 gap-4">
+                            <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Produtos</h5>
+                        </div>
+                    </div>
+                <!-- </div> -->
+                </a>
+                <a class="text-decoration-none" href="/categorias/">
+                    <!-- <div class="col-3"> -->
+                    <div class="row text-center fundo2 card-fundo align-items-end">
+                        <div class="p-4 gap-4">
+                            <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Categorias</h5>
+                        </div>
+                    </div>
+                   <!-- </div> -->
+                </a>
+                <a class="text-decoration-none" href="/usuarios/">
+                    <!-- <div class="col-3"> -->
+                        <div class="row text-center fundo3 card-fundo align-items-end">
+                            <div class=" p-4 gap-4">
+                                <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Usuários</h5>
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                </a>
+            </div>
+            <br>
+
+
+            <section class="row">
+                <br>
+                <div class="col-md-5">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-sucess text-white">Valor de estoque por Categorias</div>
+                        <div class="card-body">
+                            <canvas id="barrasEstoqueCategoria"></canvas>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="shadow-sm">
+                        <div class="card-header bg-secondary text-white"> Estoque Minimo</div>
+                        <div class="card-body"></div>
+                        <canvas id="estoqueminimo" class="col-3"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+    </main>
+
+    <script>
+                
+        const dadosValorEstoqueCategoria = <%- JSON.stringify() %>,
+
+   const barCtx = document.getElementById('barrasEstoqueCategoria').getContext('2d');
+    new Chart(barCtx, {
+        type: 'bar',
+        data: {
+            labels: nome,
+            datasets:  [{
+                label: 'Valor Estoque',
+                data: qntprod,
+                backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545', '#6f42c1']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: true },
+                tooltip: { enabled: true }
+            }
+        }
+    });
+
+
+
+    //pizza
+const aprovacaoprodutos = <%- JSON.stringify(totalEstoque) %>
+
+
+const pieCtx = document.getElementById('estoqueminimo').getContext('2d');
+    new Chart(pieCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Total Produtos estoque'],
+            datasets: [{
+                data: 1,
+                backgroundColor: ['#28a745', '#dc3545', '#ffc107']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: true },
+                tooltip: { enabled: true }
+            }
+        }
+    });
+
+    </script>
+    
+
+    <%- include('../includes/footer.ejs') %>

@@ -1,0 +1,113 @@
+'
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- icone aba -->
+    <link rel="shortcut icon" type="imagex/png" href="../../../img/logo_agritech_aba.ico">
+    <title>Tela de Login</title>
+    <!-- icone aba -->
+    <link rel="shortcut icon" type="imagex/png" href="../img/logo_agritech_aba.ico">
+    <style>
+        body {
+            background-image: url(../img/iot_mao.jpg);
+            background-position: center;
+            background-size: cover;
+            align-items: center;
+            display: flex;
+            justify-content: end !important;
+
+        }
+
+        /* .container {
+            display: flex;
+            justify-content: end;
+            width: 100%;
+            margin: 0 !important;
+        } */
+
+        .login-container {
+            width: 50% !important;
+            height: 100%;
+            padding: 30px 200px;
+            margin-bottom: auto !important;
+            /* From https://css.glass */
+            background: rgba(211, 211, 211, 0.22);
+            border-radius: 3px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10.9px);
+            -webkit-backdrop-filter: blur(10.9px);
+
+        }
+
+        h2 {
+            color: #fefff5 !important;
+        }
+
+        .cor-botao {
+            background: linear-gradient(32deg, #2c663d 0%, #2e9835 100%);
+            border: #2c663d !important;
+        }
+
+        .logo {
+            width: 350px;
+            object-fit: contain;
+        }
+
+        .btn-cancelar-login {
+            width: 100%;
+            border: #fefff5 2px !important;
+            border-radius: 3px;
+            color: #fefff5 !important;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- <main class="container"> -->
+
+        <div class="login-container">
+            <!-- <h2 class="text-center">Login</h2> -->
+            <nav class="w-100 d-flex justify-content-center">
+                <img src="../../img/logo_agritech_transparente.png" alt="logo" class="logo">
+            </nav>
+            <form action="/auth/login" method="POST">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Usuário</label>
+                    <input type="text" class="form-control" id="username" name="usuario"
+                        placeholder="Digite seu usuário" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="password" name="senha"
+                        placeholder="Digite sua senha" required>
+                </div>
+                <button type="submit" class="btn btn-primary cor-botao w-100 mb-1">Entrar</button>
+                <a href="/" class="btn btn-cancelar-login">Cancelar</a>
+            </form>
+            <div class="text-center mt-3">
+                <% if (typeof mensagem !='undefined' ) { %>
+                    <p class="erro">
+                        <%= mensagem %>
+                    </p>
+                    <% } %>
+            </div>
+        </div> <br>
+    <!-- </main> -->
+
+    <!-- <footer>
+        <div class="text-center mt-3">
+            <div class="text-center">
+                <p class="text-decoration-none text-light">&copy; 2024 Sistema AgriTech - Projeto Sesi/Senai</p>
+            </div>
+        </div>
+    </footer> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

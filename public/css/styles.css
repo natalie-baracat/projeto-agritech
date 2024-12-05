@@ -1,0 +1,587 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Rubik+80s+Fade&display=swap');
+
+* {
+    font-family: "Parkinsans", sans-serif;
+    font-optical-sizing: auto;
+}
+
+.parkinsans-regular {
+    font-family: "Parkinsans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.parkinsans-semibold {
+    font-family: "Parkinsans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.parkinsans-bold {
+    font-family: "Parkinsans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.texto-card-diretorio {
+    font-size: xx-large;
+    text-shadow: #444444;
+}
+
+
+.logo {
+    margin: 0 10px 0 0 !important;
+}
+
+.nav-link {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    /* color: white !important; */
+}
+
+.navbar {
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    position: sticky;  
+    top: 0;  
+    z-index: 1050 !important;       /* Garante que a navbar fique na frente dos outros elementos */
+    width: 100%;         /* Garante que a navbar ocupe toda a largura da página */
+    /* box-shadow: 0 4px 5px rgba(135, 135, 135, 0.223) !important; */
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.712);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.8px);
+    -webkit-backdrop-filter: blur(14.8px);
+}
+
+.banner-container {
+    position: relative;
+}
+
+.banner>img {
+    width: 100%;
+    height: auto;
+    object-fit: fill;
+    max-height: 450px;
+}
+
+.banner_imagens {
+    /*Definir largura máxima*/
+    max-width: 45%;
+    /*Exibir as imagens em 4 colunas*/
+    column-count: 4;
+}
+
+.banner_imagens>figure>img {
+    width: 100%;
+    border-radius: 3px;
+
+}
+
+.carrosel-item img {
+    height: 550px;
+    object-fit: cover;
+}
+
+
+/* .btn {
+    border-color: #2c663d !important;
+
+} */
+
+
+.navbar {
+    /* background: radial-gradient(circle, rgba(204,240,204,1) 0%, rgba(255,255,255,1) 89%)!important; */
+    box-shadow: 0 0 5px 3px #e0e0e027;
+}
+
+footer {
+    background-color: #c2e6b93f;
+    /* padding-bottom: 0 !important; */
+}
+
+/* VOU COLOCAR SO NO EDITAR PQ SIM */
+/* .fundo-com-imagem {
+    background-image: url(https://www.myfarm.com.br/wp-content/uploads/2020/07/991159.jpeg);
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 0 !important;
+} */
+
+.fundo-com-imagem-usuario {
+    background-image: url(../img/uns_home_com_drone.jpg);
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 0 !important;
+}
+
+.fundo-trans {
+    padding: 20px 3px;
+    min-height: 600px;
+
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.23);
+    border-radius: 3px;
+    box-shadow: 0 4px 30px rgba(220, 220, 220, 0.29);
+    backdrop-filter: blur(10.9px);
+    -webkit-backdrop-filter: blur(10.9px);
+
+}
+
+.pesquisar-e-add {
+    max-width: 1000px;
+}
+
+.btn-add {
+    max-height: 40px !important;
+}
+
+/* .card-img-overlay {
+
+} */
+
+
+/* .cima-foto{
+    position: absolute;
+}
+
+.d-block w-100{
+    position: relative !important;
+} */
+
+.container-fluid {
+    margin-top: 0 !important;
+}
+
+
+
+.navbar form a {
+    margin: 0 10px !important;
+}
+.navbar form p {
+    margin: 0 10px !important;
+}
+
+/* imagem dentro da tabela (produto) */
+
+.container-td-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+}
+
+td img {
+    width: 200px;
+}
+
+/* COPIEI DO PROFESSOR */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    text-shadow: 0px 1px 2px #5f626c2c;
+}
+
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    /* alteraçoes que fiz pra arrumar os novos icones */
+    display: inline-flex;
+    align-items: center;
+    /**************************************************/
+}
+
+main {
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+
+h2 {
+    text-align: center;
+}
+
+.dados-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+    background-color: #d4d9ce;
+}
+
+.dados-table thead {
+    background: linear-gradient(32deg, rgba(0, 113, 233, 1) 0%, rgba(137, 201, 255, 1) 100%);
+    color: white;
+}
+
+.dados-table th,
+.dados-table td {
+    padding: 12px 15px;
+    border: 0.2px solid #01330129;
+    text-align: left;
+    background-color: #067b29;
+}
+
+.dados-table td {
+    background-color: #dddddd00;
+}
+
+.dados-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.dados-table td a,
+.dados-table td form {
+    display: inline-block;
+}
+
+/* Estilo dos botões */
+.btn {
+    padding: 8px 12px;
+    margin-bottom: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100% !important;
+}
+
+.btn-primary {
+    background: linear-gradient(32deg, rgba(0, 113, 233, 1) 0%, rgba(137, 201, 255, 1) 100%);
+    color: white;
+    border: none;
+}
+
+.btn-edit {
+    background: linear-gradient(32deg, rgba(40, 167, 69, 1) 31%, rgba(154, 204, 41, 1) 100%);
+    color: white;
+}
+
+.btn-delete {
+    background: linear-gradient(32deg, rgba(220, 53, 69, 1) 31%, rgba(232, 96, 65, 1) 100%);
+    color: white !important;
+    border: 1.0px #b31515 !important;
+    border-style: outset !important; 
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    border: linear-gradient(32deg, rgba(0, 113, 233, 1) 0%, rgba(137, 201, 255, 1) 100%);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    margin-left: 10px;
+    border: none;
+    width: 100%;
+}
+
+.btn-success {
+    background: linear-gradient(32deg, rgba(40, 167, 69, 1) 31%, rgba(154, 204, 41, 1) 100%);
+}
+
+.form-consulta {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-consulta input,
+.form-consulta select {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* estilos da paginação */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.icones-header {
+    width: 22px;
+    height: 100%;
+    margin-left: 2px;
+}
+
+
+/* card */
+.container-card{
+    display: flex;
+    gap: 75px;
+}
+.card{
+    width: 300px;
+    height: 250px;
+    flex: 0 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 5px rgba(47, 47, 47, 0.223);
+    font-family: Arial, Helvetica, sans-serif;
+    transition: transform 0.3 ease, box-shadow 0.3s ease;
+}
+.card-fundo{
+    width: 400px;
+    height: 250px;
+    flex: 0 0 auto;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 5px rgba(47, 47, 47, 0.223); */
+    font-family: Arial, Helvetica, sans-serif;
+    transition: transform 0.3 ease, box-shadow 0.3s ease;
+}
+.fundo1{
+    background-image: url(/img/3.png);
+    max-width: 100%;/*Mantem o limite maximo do tamanho do container */
+    height: 250px;/*Mantem a proporção da imagem*/
+}
+.fundo2{
+    background-image: url(/img/2.png);
+    max-width: 100%;/*Mantem o limite maximo do tamanho do container */
+    height: 250px;/*Mantem a proporção da imagem*/
+}
+.fundo3{
+    background-image: url(/img/1.png);
+    max-width: 100%;/*Mantem o limite maximo do tamanho do container */
+    height: 250px;/*Mantem a proporção da imagem*/
+}
+.card:hover{
+    /*Serve par criar um efeito hover, mudando a posição do card*/
+    transition: scale(1.1);
+}
+.imagem-card{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imagem-card > img{
+    max-width: 100%;/*Mantem o limite maximo do tamanho do container */
+    height: 150px;/*Mantem a proporção da imagem*/
+}
+.imagem-card > figcaption{
+    font-size: 0.8rem;
+    padding: 8px;
+    text-align: center;
+    color: #555;
+
+}
+.rodape-card{
+    text-align: center;
+    padding: 6px;
+}
+
+.foto-perfil {
+    border-radius: 50% !important;
+    width: 200px !important;
+    height: 200px;
+    object-fit: cover;
+}
+
+.foto-perfil-header {
+    border-radius: 50% !important;
+    width: 50px !important;
+    height: 50px;
+    object-fit: cover;
+}
+
+.container-img-card {
+    width: 100%;
+    height: 205px !important;
+    display: flex;
+    justify-content: center;
+    text-shadow: 0 0 10px 3px #97979795 ;
+}
+
+.conteudo-card-overlay card-text {
+    text-shadow: 0 0 10px 3px #97979795 !important;
+    margin-bottom: 0 !important;
+}
+
+.conteudo-card-overlay {
+    margin-top: 50px;
+}
+
+.imagem-editar {
+    width: 400px;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 8px;
+    border-radius: 5px;
+}
+
+/* cards produto */
+
+.card-produto {
+    width: 350px;
+    height: 490px !important;
+    border: none !important;
+}
+
+.container-img-card {
+    width: 100%;
+    height: 250px;
+}
+
+.imagem-card-produto {
+    border-start-start-radius: 5px ;
+    border-start-end-radius: 5px ;
+    object-fit: cover;
+    width: 100%;
+}
+
+.sem-pad-lado{
+    padding: 7px 0 !important;
+}
+
+.titulo-produto {
+    font-style: bold;
+    font-weight: 700;
+    font-size: medium !important;
+}
+
+.card-text {
+    font-size: 0.9rem;
+}
+
+.preco p {
+    font-size: larger;
+    color: #28a745;
+}
+
+
+/* cards dashbord informacoes sobre estoque */
+.container-cards-info {
+    width: 100%;
+}
+
+.card-dec {
+    border-left: 5px solid #48c448 !important;
+}
+
+.width-maior {
+    width: 75% !important;
+}
+
+
+/* icone exibir senha */
+.eye{
+    font-size: 30px;
+    cursor: pointer;
+
+    position: absolute; 
+    right: 33%;
+    color: #ccc;
+    /* Precisa ir um pouquinho pro lado, mas se colocar ele passa */
+}
+
+/* ONDAS */
+body-dash{
+    background-image: url(https://static1.funidelia.com/499355-f6_big2/fato-de-elefante-para-adulto.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+section.ondas-box{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.onda{
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    background-image: url(/img/onda.png);
+    background-size: 1000px 100px;
+
+    animation: ondaAnimada 5s ease-in-out infinite alternate;
+}
+@keyframes ondaAnimada{
+    0%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(10px);
+    }
+}
+
+#onda1{
+    z-index: 1000;
+    opacity: 1;
+    background-position-x: 400px;
+}
+#onda2{
+    z-index: 999;
+    opacity: 0.5;
+    background-position-x: 300px;
+}
+#onda3{
+    z-index: 998;
+    opacity: 0.2;
+    background-position-x: 200px;
+}
+#onda4{
+    z-index: 997;
+    opacity: 0.8;
+    background-position-x: 100px;
+}
+
+
+/* Carrossel ocupando 100% da altura */
+.carousel {
+    height: 100vh;
+}
+
+.carousel img {
+    object-fit: cover;
+    height: 100%;
+}

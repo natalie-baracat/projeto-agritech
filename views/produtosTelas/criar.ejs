@@ -1,0 +1,44 @@
+<%- include('../includes/header.ejs', {titulo: 'Cadastrar produtos' }) %>
+<main>
+    <h2>Cadastrar produto</h2>
+
+    <form action="/produtos/novo" method="POST" class="form">
+
+        <div class="form-group">
+            <label for="imagem">Imagem do Produto (insira a URL): </label> <!--nao sei usar o tipo File -->
+            <input type="text" id="imagem" name="imagem" required>
+        </div>
+        <div class="form-group">
+            <label for="nome_produto">Nome do Produto: </label>
+            <input type="text" id="nome_produto" name="nome_produto" required>
+        </div>
+
+        <div class="form-group">
+            <label for="id_categoria">Selecione uma Categoria: </label>
+            <select id="id_categoria" name="id_categoria">
+                <% for (let categoria of  categoriasCadastradas){ %>
+                    <option value="<%= categoria.id_categoria %>"><%= categoria.nome_categoria %></option>
+                <% } %>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="valor">Preço unitário: </label>
+            <input type="text" id="valor" name="valor"  required>
+        </div>
+
+        <div class="form-group">
+            <label for="estoque_minimo">Estoque mínimo: </label>
+            <input type="number" id="estoque_minimo" name="estoque_minimo"  required>
+        </div>
+     
+        <div class="form-group">
+            <label for="estoque">Estoque disponível: </label>
+            <input type="number" id="estoque" name="estoque"  required>
+        </div>
+        
+        <button type="submit" class="btn btn-success">Salvar alterações </button>
+        <a href="/produtos" class="btn btn-secondary">Cancelar</a>
+    </form>
+</main>
+<%- include('../includes/footer.ejs') %>

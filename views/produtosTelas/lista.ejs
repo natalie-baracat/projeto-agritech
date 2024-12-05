@@ -1,0 +1,80 @@
+<%- include('../includes/header.ejs', {titulo: 'Lista de produtos' }) %>
+    <main class="fundo-com-imagem">
+        <div class="fundo-trans d-flex justify-content-center flex-column ">
+
+            <h2>Lista produtos</h2>
+            
+            <div class="w-100 d-flex justify-content-center">
+                <div class="pesquisar-e-add d-flex justify-content-center align-items-center">
+                    <form action="/produtos/" method="GET" class="form form-consulta m-3">
+                        <input type="text" name="busca" value="<%=busca%>" placeholder="Buscar produto">
+                        <button class="btn btn-success">Buscar</button>
+                        <select name="ordenar" onchange="this.form.submit() // isso é um comando de JS!!">
+                            <option value="nome_produto" <%= ordenar == 'nome_produto' ? 'selected' : '' %>>Ordenar por nome</option>
+                            <option value="nome_categoria" <%= ordenar == 'nome_categoria' ? 'selected' : '' %>>Ordenar por categoria</option>
+                            <option value="valor" <%= ordenar == 'valor' ? 'selected' : '' %>>Ordenar por Menor Preço</option>
+                            <option value="estoque_minimo" <%= ordenar == 'estoque_minimo' ? 'selected' : '' %>>Ordenar por Estoque Mínimo</option>
+                            <option value="estoque" <%= ordenar == 'estoque' ? 'selected' : '' %>>Ordenar por Estoque Disponível</option>
+                        </select>
+                    </form>
+                    <a href="/produtos/novo" class=" btn btn-success"> Adicionar Produto</a>
+                </div>
+            </div>
+
+
+            <div class="d-flex gap-4 flex-row flex-wrap justify-content-center" >
+                <% for(let produto of produtos) { //pega todos os dados de cada linha da tabela produtos%>
+                    <div class="container-foto-produto-e-card d-flex flex-column">
+                        <div class="card d-flex card-produto">
+                            <div class="container-img-card">
+                                <img src="<%= produto.imagem %>" class="imagem-card-produto" alt="produto">
+                            </div>
+                            <div class="card-body p-3 d-flex flex-column text-align-center justify-content-center sem-pad-lado">
+                                <section class="nome d-flex justify-content-start">
+                                    <h4 class="card-title titulo-produto parkinsans-semibold mb-0"><%= produto.nome_produto %></h4> <br>
+                                </section>
+                                <section class="preco d-flex justify-content-end">
+                                    <p class="card-text parkinsans-semibold">R$<%=  produto.valor %></p>
+                                </section>
+                                
+                                <p class="card-text parkinsans-regular">Categoria: <%= produto.nome_categoria%></p>
+                                
+                                <div class="d-flex justify-content-between">
+                                    <p class="card-text parkinsans-regular">Estoque: <%= produto.estoque%></p>
+                                    <p class="card-text parkinsans-regular">Estoque Mínimo: <%= produto.estoque_minimo%></p>
+                                </div>
+                                <a href="/produtos/<%= produto.id_produto %>/editar" class="btn btn-edit">Editar</a>
+                                <form action="/produtos/<%= produto.id_produto %>/deletar" method="POST">
+                                    <button type="submit" class="btn btn-delete" onclick="confirmaDeleta()">Inativar</button>
+                                </form>
+                            </div>
+                        </div>                        
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="pagination mt-5">
+                <% if(pgAtual > 1) { %>
+                    <a href="/produtos?pg=<%= pgAtual-1 %>">
+                        <svg class="svg-icon" style="width: 1.3em; height: 1.3em; vertical-align: middle; fill: #28a745; overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <path transform="rotate(180, 512, 512)" d="M887.3 502.5v23.7l15.8-11.8zM242.9 64.2v898l598.6-449z" />
+                          </svg>
+                    </a>
+                <% } %>
+        
+                <span>Página <%= pgAtual %> de <%= totalPgs %></span>
+        
+                <% if (pgAtual < totalPgs) { %>
+                    <a href="/produtos?pg=<%= pgAtual+1 %>">
+                        <svg class="svg-icon" style="width: 1.3em; height: 1.3em;vertical-align: middle;fill: #28a745;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M887.3 502.5v23.7l15.8-11.8zM242.9 64.2v898l598.6-449z"  /></svg>
+                    </a>
+                <% } %>
+                </div>
+    </main>
+    <script>
+        function confirmaDeleta() {
+            alert("Tem certeza que deseja excluir esse item? Esta ação não pode ser desfeita!")
+        }
+    </script>
+
+    <%- include('../includes/footer.ejs') %>

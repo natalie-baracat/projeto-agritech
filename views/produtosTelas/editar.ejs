@@ -1,0 +1,166 @@
+<%- include('../includes/header.ejs', {titulo: 'Editar produto' }) %>
+    <main>
+        <h2>Editando Produtos</h2>
+
+        <div class="container">
+            <!-- Tab Navigation -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#editar" type="button"
+                        aria-controls="editar" aria-selected="true">
+                        Editar Produto
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#lancar-movimentacoes" type="button"
+                        aria-controls="lancar-movimentacoes" aria-selected="false">
+                        Lançar Movimentação
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#movimentacao" type="button"
+                        aria-controls="movimentacao" aria-selected="false">
+                        Movimentações
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="notas-tab" data-bs-toggle="tab" data-bs-target="#grafico" type="button"
+                        aria-controls="notas" aria-selected="false">
+                        Gráfico
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="myTabContent">
+
+                <!-- Aba para Editar o produto -->
+                <div class="tab-pane fade show active p-3" id="editar">
+                    <form action="/produtos/<%= produto.id_produto %>/editar" method="post" class="form">
+                        <div class="form-group">
+                            <label for="imagem">Imagem do Produto (insira a URL):</label>
+                            <!--nao sei usar o tipo File -->
+                            <img class="imagem-editar" src="<%= produto.imagem %>" alt="">
+                            <input type="text" id="imagem" name="imagem" value="<%= produto.imagem %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nome_produto">Nome do Produto:</label>
+                            <input type="text" id="nome_produto" name="nome_produto" value="<%= produto.nome_produto %>"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="id_categoria">Selecione uma Categoria:</label>
+                            <select id="id_categoria" name="id_categoria">
+
+                                <% for (let categoria of categoriasCadastradas){ %>
+                                    <option value="<%= categoria.id_categoria %>">
+                                        <%= categoria.nome_categoria %>
+                                    </option>
+                                    <% } %>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formacao">Valor unitário:</label>
+                            <input type="text" id="valor" name="valor" value="<%= produto.valor%>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="estoque_minimo">Estoque mínimo:</label>
+                            <input type="number" id="estoque_minimo" name="estoque_minimo" value="<%= produto.estoque_minimo%>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="estoque">Estoque disponível:</label>
+                            <input type="number" id="estoque" name="estoque" value="<%= produto.estoque %>" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-edit">Salvar Alterações</button>
+                        <a href="/produtos" class="btn btn-secondary">Cancelar</a>
+                    </form>
+                </div>
+
+                <!-- Aba para tabela de movimentaçoes -->
+                <div class="tab-pane fade p-3" id="movimentacao">
+                    <h4>Movimentações</h4>
+                    <div>
+                        <table class="dados-table">
+                            <thead>
+                                <tr>
+                                    <th>Tipo de movimentação</th>
+                                    <th>Data</th>
+                                    <th>Quantidade movimentada</th>
+                                    <th>Descrição</th>
+                                    <th>Estoque</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for (let movimentacao of movimentacoes) {%>
+                                    <tr>
+                                        <td>
+                                            <%= movimentacao.tipo_movimentacao %>
+                                        </td>
+                                        <td>
+                                            <%= movimentacao.data %>
+                                        </td>
+                                        <td>
+                                            <%= movimentacao.quantidade %>
+                                        </td>
+                                        <td>
+                                            <%= movimentacao.descricao %>
+                                        </td>
+                                        <td>
+                                            <%= movimentacao.estoque %>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Aba para LANCAR as movimentaçoes -->
+                <div class="tab-pane fade p-3" id="lancar-movimentacoes">
+                    <form action="/produtos/<%= produto.id_produto %>/<%= idUsuario %>/movimentacao" method="POST"
+                        class="form">
+                        <div class="form-group">
+                            <label for="movimentacao">Tipo de Movimentação:</label>
+                            <select id="movimentacao" name="tipo">
+                                <option>Selecione um tipo de movimentação</option>
+                                <option value="E">Entrada</option>
+                                <option value="S">Saída</option>
+                            </select>
+                            <div class="form-group">
+                                <label for="estoque_atual">Estoque Atual:</label>
+                                <input type="number" id="estoque_atual" name="estoque_atual" value="<%= produto.estoque %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="quantidade">Quantidade:</label>
+                                <input type="number" id="quantidade" name="quantidade" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="descrição">Descrição:</label>
+                                <input type="text" id="descrição" name="descricao" required>
+                            </div>
+                            <button type="submit" class="btn btn-edit"> Salvar Alterações </button>
+                            <a href="/produtos/" class="btn btn-secondary">Cancelar</a>
+
+                            <% if(typeof mensagem !='undefined' ) { %>
+                                <p class="erro">
+                                    <%= mensagem %>
+                                </p>
+                                <% } %>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </main>
+
+
+    <%- include('../includes/footer.ejs') %>

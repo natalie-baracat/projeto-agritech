@@ -1,0 +1,54 @@
+<%- include('../includes/header.ejs', {titulo: 'Lista de usuario' }) %>
+    <main class="fundo-com-imagem-usuario">
+        <div class="fundo-trans d-flex justify-content-center flex-column ">
+
+            <!-- OBS: COLOCAR ESSA ESTILIZACAODE BUSCA E BOTAO NAS PAG CATEGORIA E PRODUTO -->
+            <h2>Lista Usuários</h2>
+
+            <div class="w-100 d-flex justify-content-center">
+                <div class="pesquisar-e-add d-flex justify-content-center align-items-center">
+                    <form action="/usuarios/" method="GET" class="form form-consulta m-3">
+                        <input type="text" name="busca" value="<%=busca%>" placeholder="Buscar usuários">
+                        <button class="btn btn-success">Buscar</button>
+                        <select name="ordenar" onchange="this.form.submit()">
+                            <option value="nome" <%=ordenar=='nome' ? 'selected' : '' %>>Ordenar por Nome</option>
+                            <option value="usuario" <%=ordenar=='usuario' ? 'selected' : '' %>>Ordenar por Usuário
+                            </option>
+                        </select>
+                    </form>
+                    <a href="/usuarios/novo" class=" btn btn-success btn-add"> Adicionar Usuário</a>
+                </div>
+            </div>
+
+            <div>
+                <% for(let usuario of usuarios) { //pega todos os dados de cada linha da tabela produtos%>
+                    <div class="d-flex gap-2 flex-row flex-wrap justify-content-center">
+                        <div class="card p-3 d-flex" style="width: 18rem;">
+                            <div class="container-img-card">
+                                <img src="<%= usuario.foto_perfil %>" class="card-img-top foto-perfil" alt="perfil">
+                            </div>
+                            <div
+                            class="p-2">
+                                <h5 class="card-title">
+                                    <%= usuario.nome %>
+                                </h5>
+                                <h8 class="card-text text-muted">@<%= usuario.usuario %>
+                                </h8><br>
+                                <!-- <h8 class="card-text">Senha: <%= usuario.senha %></h8> -->
+                                <br>
+                                <a href="/usuarios/<%= usuario.id_usuario %>/editar"
+                                    class="btn btn-edit w-100 mb-2">Editar</a>
+                                <form action="/usuarios/<%= usuario.id_usuario%>/deletar" method="POST">
+                                    <!-- <button type="submit" class="btn btn-delete w-100"  >Excluir</button> -->
+                                    <button type="submit" class="btn btn-delete w-100" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <% } %>
+                    </div>
+            </div>
+    </main>
+    <%- include('../includes/footer.ejs') %>
+
+
