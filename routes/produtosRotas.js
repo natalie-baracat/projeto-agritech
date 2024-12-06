@@ -2,6 +2,28 @@ const express = require('express')
 const router = express.Router()
 const BD = require('../db')
 
+/* ARQUIVOS FOTOS */
+const { put, del } = require("@vercel/blob"); // prof criou  2 funções para fazer o upload do arquivo e retornar o link dele
+
+const enviarFoto = async (file) => {
+    const fileBuffer = file.data
+    const originalName = file.name
+    const blob = await put(originalName, fileBuffer, {
+        access: "public", // Define acesso público ao arquivo
+    });
+    console.log(`Arquivo enviado com sucesso! URL: ${blob.url}`);
+    return blob.url;
+};
+
+const excluirFoto = async (imagemUrl) => {
+    const nomeArquivo = imagemUrl.split("/").pop();
+    if (nomeArquivo) {
+        await del(nomeArquivo);
+        console.log(`Arquivo ${nomeArquivo} excluído com sucesso.`);
+    }
+}
+/*--------------------------------------------------------------*/
+
 //rota onde lista produtos (R - read)
 router.get('/', async (req, res) => { //para acessar essa rota, digito /disciplinas/
     //visualizando erro (se tiver)
@@ -64,10 +86,15 @@ router.post("/novo", async (req, res) => {
         const valor = req.body.valor
         const estoque_minimo = req.body.estoque_minimo
         const estoque = req.body.estoque
+        let urlImagem = imagem
+        if(req.files) {
+            excluirFoto(urlImagem)
+            urlImagem = await enviarFoto(req.files.file)
+        }
 
         await BD.query(`insert into produtos (imagem, nome_produto, valor, estoque_minimo, estoque, id_categoria) 
                             values ($1, $2, $3, $4, $5, $6)`, 
-                            [imagem, nome_produto, valor, estoque_minimo, estoque, id_categoria])
+                            [urlImagem, nome_produto, valor, estoque_minimo, estoque, id_categoria])
         //Redirecionando para a tela de consulta de produtos
         res.redirect('/produtos/')
 

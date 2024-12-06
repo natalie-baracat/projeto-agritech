@@ -2,11 +2,12 @@
 <main>
     <h2>Cadastrar produto</h2>
 
-    <form action="/produtos/novo" method="POST" class="form">
+    <form action="/produtos/novo" method="POST" class="form" enctype="multipart/form-data">
 
         <div class="form-group">
             <label for="imagem">Imagem do Produto (insira a URL): </label> <!--nao sei usar o tipo File -->
-            <input type="text" id="imagem" name="imagem" required>
+            <input type="file" id="file" name="file">
+            <input type="text" id="imagem" name="imagem" value="<%= produto.imagem %>" required>
         </div>
         <div class="form-group">
             <label for="nome_produto">Nome do Produto: </label>

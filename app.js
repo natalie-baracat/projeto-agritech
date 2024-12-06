@@ -1,8 +1,10 @@
 const express = require('express')
 const path = require('path')
-const session = require('express-session')
+const session = require('express-session') //para login
 
 const app = express()
+
+const fileUpload = require("express-fileupload") //para arquivos de foto
 
 //Configurações do Servidor
 app.set('views', path.join(__dirname, 'views')); // Configura o diretório das views
@@ -15,6 +17,7 @@ app.use(session({ //
     resave: false,
     saveUninitialized: true //se nao houver dados na sessao, nao salva
 }))
+app.use(fileUpload()) //Middleware para fazer o upload do arquivo
 
 //middleware para verificar se o usuario esta logado
 const verificarAutenticacao = (req, res, next) => {
