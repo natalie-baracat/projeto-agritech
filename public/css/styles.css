@@ -530,8 +530,8 @@ h2 {
 }
 
 .text-estoque-atual {
-    font-weight: 600;
-    color: #b31515;
+    font-weight: 600 !important;
+    color: #b31515 !important;
 }
 
 
