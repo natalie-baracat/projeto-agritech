@@ -51,16 +51,21 @@
   .carousel-text h1 {
     font-size: 3rem;
     font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
   }
   
   .carousel-text span {
     font-size: 1.25rem;
     font-weight: 300;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
   }
-
+/* 
 .carousel-item {
     height: 700px !important;
 }
+.carousel-item-active {
+    height: 550px !important;
+} */
 
 .nav-link {
     padding-top: 0 !important;
@@ -546,6 +551,10 @@ h2 {
 
 .width-maior {
     width: 75% !important;
+}
+
+.margem-maior {
+    margin-top: 20px;
 }
 
 

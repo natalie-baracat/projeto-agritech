@@ -4,7 +4,7 @@
 
         <!-- Bem vindo -->
         <div class="text-center mt-5">
-            <h1 id="dashboard">AgriTech</h1>
+            <h1 class="display-4" id="dashboard">AgriTech</h1>
             <span>Bem-Vindo ao Sistema AgriTech</span>
         </div>
 
@@ -92,85 +92,88 @@
 
 
 
-            <!-- exibindo produtos igual ou abaixo ao valor minimo necessario em estoque -->
-            <section class="d-flex gap-4 flex-row flex-wrap justify-content-center mt-5 mb-5">
-                <h3><a href="/produtos">Produtos</a> abaixo do estoque mínimo <i class="bi bi-exclamation-triangle"></i></h3>
-                <% for(let produto of produtos) { //pega todos os dados de cada linha da tabela produtos%>
-                    <div class="d-flex flex-column">
-                        <div class="card d-flex card-estoque-min">
-                            <div class="container-img-card">
-                                <img src="<%= produto.imagem %>" class="imagem-card-produto" alt="produto">
-                            </div>
-                            <div class="card-body p-3 d-flex flex-column text-align-center justify-content-center sem-pad-lado">
-                                <section class="nome d-flex justify-content-start">
-                                    <h4 class="card-title titulo-produto parkinsans-semibold mb-0"><%= produto.nome_produto %></h4> <br>
-                                </section>                                
-                                <p class="card-text parkinsans-regular">Categoria: <%= produto.nome_categoria%></p>
-                                
-                                <div class="d-flex justify-content-between">
-                                    <p class="card-text parkinsans-regular text-estoque-atual">Estoque Atual: <%= produto.estoque%></p>
-                                    <p class="card-text parkinsans-regular">Estoque Mínimo: <%= produto.estoque_minimo%></p>
-                                </div>
+        <!-- exibindo produtos igual ou abaixo ao valor minimo necessario em estoque -->
+            
+        <section class="d-flex gap-4 flex-row flex-wrap justify-content-center mt-5 mb-5 margin-maior">
+            <div class="w-100">
+                <h3 class=" display-3"><a href="/produtos">Produtos</a> abaixo do estoque mínimo <b><i class="bi bi-exclamation-triangle"></i></b></h3>
+            </div>
+            <% for(let produto of produtos) { //pega todos os dados de cada linha da tabela produtos%>
+                <div class="d-flex flex-column">
+                    <div class="card d-flex card-estoque-min">
+                        <div class="container-img-card">
+                            <img src="<%= produto.imagem %>" class="imagem-card-produto" alt="produto">
+                        </div>
+                        <div class="card-body p-3 d-flex flex-column text-align-center justify-content-center sem-pad-lado">
+                            <section class="nome d-flex justify-content-start">
+                                <h4 class="card-title titulo-produto parkinsans-semibold mb-0"><%= produto.nome_produto %></h4> <br>
+                            </section>                                
+                            <p class="card-text parkinsans-regular">Categoria: <%= produto.nome_categoria%></p>
+                            
+                            <div class="d-flex justify-content-between">
+                                <p class="card-text parkinsans-regular text-estoque-atual">Estoque Atual: <%= produto.estoque%></p>
+                                <p class="card-text parkinsans-regular">Estoque Mínimo: <%= produto.estoque_minimo%></p>
                             </div>
                         </div>
                     </div>
-                <% } %>
-            </section>
+                </div>
+            <% } %>
+        </section>
 
-            <br>
+        <br>
 
-            <div class="container-card justify-content-center d-flex flex-row mb-4">
-                <a class="text-decoration-none" href="/produtos/">
-                    <!-- <div class="col-3"> -->
-                    <div class="row text-center fundo1 card-fundo align-items-end">
+        <div class="container-card justify-content-center d-flex flex-row mb-4">
+            <a class="text-decoration-none" href="/produtos/">
+                <!-- <div class="col-3"> -->
+                <div class="row text-center fundo1 card-fundo align-items-end">
+                    <div class=" p-4 gap-4">
+                        <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Produtos</h5>
+                    </div>
+                </div>
+            <!-- </div> -->
+            </a>
+            <a class="text-decoration-none" href="/categorias/">
+                <!-- <div class="col-3"> -->
+                <div class="row text-center fundo2 card-fundo align-items-end">
+                    <div class="p-4 gap-4">
+                        <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Categorias</h5>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </a>
+            <a class="text-decoration-none" href="/usuarios/">
+                <!-- <div class="col-3"> -->
+                    <div class="row text-center fundo3 card-fundo align-items-end">
                         <div class=" p-4 gap-4">
-                            <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Produtos</h5>
+                            <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Usuários</h5>
                         </div>
                     </div>
                 <!-- </div> -->
-                </a>
-                <a class="text-decoration-none" href="/categorias/">
-                    <!-- <div class="col-3"> -->
-                    <div class="row text-center fundo2 card-fundo align-items-end">
-                        <div class="p-4 gap-4">
-                            <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Categorias</h5>
-                        </div>
-                    </div>
-                   <!-- </div> -->
-                </a>
-                <a class="text-decoration-none" href="/usuarios/">
-                    <!-- <div class="col-3"> -->
-                        <div class="row text-center fundo3 card-fundo align-items-end">
-                            <div class=" p-4 gap-4">
-                                <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Usuários</h5>
-                            </div>
-                        </div>
-                    <!-- </div> -->
-                </a>
-            </div>
+            </a>
+        </div>
+        <br>
+
+
+        <section class="row">
             <br>
-
-
-            <section class="row">
-                <br>
-                <div class="col-md-5">
-                    <div class="card shadow-sm">
-                        <div class="card-header bg-sucess text-white">Valor de estoque por Categorias</div>
-                        <div class="card-body">
-                            <canvas id="barrasEstoqueCategoria"></canvas>
-                        </div>
+            <div class="col-6">
+                <div class="shadow-sm">
+                    <div class="card-header bg-success text-white">Valor de estoque por Categorias</div>
+                    <div class="card-body">
+                        <canvas id="barrasEstoqueCategoria"></canvas>
                     </div>
                 </div>
-                </div>
+            </div>
+            </div>
 
-                <div class="col-md-3">
-                    <div class="shadow-sm">
-                        <div class="card-header bg-secondary text-white"> Estoque Minimo</div>
-                        <div class="card-body"></div>
-                        <canvas id="estoqueminimo" class="col-3"></canvas>
-                    </div>
+            <div class="col-md-3">
+                <div class="shadow-sm">
+                    <div class="card-header bg-secondary text-white"> Estoque Minimo</div>
+                    <div class="card-body"></div>
+                    <canvas id="estoqueminimo" class="col-3"></canvas>
                 </div>
-            </section>
+            </div>
+        </section>
             
     </main>
 
@@ -200,6 +203,31 @@
         }
     });
 
+
+    //pizza
+    const dadovalorestoque = <%- JSON.stringify(totalEstoque) %>
+    const nomeCategoria = dadoValorEstoqueC.map(c => c.nome_categoria)
+    const dadosCategoria = dadoValorEstoque.map(c => c.total_categoria)
+
+
+const pieCtx = document.getElementById('estoqueminimo').getContext('2d');
+    new Chart(pieCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Abaixo estoque Mínimo'],
+            datasets: [{
+                data: 1,
+                backgroundColor: ['#28a745', '#dc3545', '#ffc107']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: true },
+                tooltip: { enabled: true }
+            }
+        }
+    });
 
     </script>
     
