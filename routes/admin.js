@@ -51,6 +51,10 @@ router.get('/', async(req, res) => {
             INNER JOIN categorias AS c ON c.id_categoria = p.id_categoria
             WHERE estoque <= estoque_minimo`)
 
+    // grafico estoque produtos
+    const { id } = req.params
+    const qProdutosNoEstoque = await BD.query(`SELECT id_produto nome_produto, estoque FROM produtos 
+                                                WHERE id_produto = $1 `, [id])
 
     res.render('admin/dashboard', {
         totalProdutos : qProdutos.rows[0].total_produtos,
@@ -61,7 +65,8 @@ router.get('/', async(req, res) => {
         produtos: buscaDadosProduto.rows,
         totalacimaestoque : qAcimaEstoque.rows[0].acima_minimo,
         totalabaixoestoque : qAbaixoEstoque.rows[0].abaixo_minimo,
-        soma_valor_categoria: valor_estoque_categoria.rows        
+        soma_valor_categoria: valor_estoque_categoria.rows,
+        QtdProduto : qProdutosNoEstoque.rows
 
     })
 })

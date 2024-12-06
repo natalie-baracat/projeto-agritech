@@ -14,11 +14,72 @@
       <!-- icone aba -->
       <link rel="shortcut icon" type="imagex/png" href="../img/logo_agritech_aba.ico">
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+      <!-- ESTILIZAÇÃO PARA O PARALAAX DA DASHBOARD. precisa ser css local. nao sei porquê -->
+      <style>
+      .body-dash {
+          background-image: url('/img/img 2 hd.jpg');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+      }
+      
+      section.ondas-box {
+          position: relative;
+          width: 100%;
+          height: 100vh;
+          overflow: hidden; /* Garante que nada exceda o contêiner */
+          margin-bottom: -5px; /* Ajuste conforme necessário */
+          overflow: hidden;
+      }
+      
+      .onda {
+          width: 100%;
+          height: 100px;
+          position: absolute;
+          bottom: 0;
+          background-image: url('/img/onda.png'); /* Certifique-se de que o caminho está correto */
+          background-size: 1000px 100px;
+          animation: ondaAnimada 5s ease-in-out infinite alternate;
+      }
+      
+      @keyframes ondaAnimada {
+          0% {
+              transform: translateY(0px);
+          }
+          100% {
+              transform: translateY(10px);
+          }
+      }
+      
+      #onda1 {
+          z-index: 1000;
+          opacity: 1;
+          background-position-x: 400px;
+      }
+      #onda2 {
+          z-index: 999;
+          opacity: 0.5;
+          background-position-x: 300px;
+      }
+      #onda3 {
+          z-index: 998;
+          opacity: 0.2;
+          background-position-x: 200px;
+      }
+      #onda4 {
+          z-index: 997;
+          opacity: 0.8;
+          background-position-x: 100px;
+      }
+        
+      </style>
  
 </head>
 
 <body class="parkinsans-regular">
-    <nav class="navbar navbar-expand-lg shadow-sm position-sticky">
+    <nav class="navbar navbar-expand-lg shadow-sm position-sticky rounded-bottom-1">
         <div class="container-fluid">
             <a href="/admin"><img class="logo" src="/img/logo_agritech_transparente.png" width="80px"></a>
           <!-- <a class="navbar-brand" href="#">Navbar</a> -->

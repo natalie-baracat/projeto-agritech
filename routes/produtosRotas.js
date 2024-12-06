@@ -11,7 +11,7 @@ const enviarFoto = async (file) => {
     const blob = await put(originalName, fileBuffer, {
         access: "public", // Define acesso público ao arquivo
     });
-    console.log(`Arquivo enviado com sucesso! URL: ${blob.url}`);
+    console.log(`Arquivo enviado com sucesso! URL: ${blob.url}`); 
     return blob.url;
 };
 
@@ -86,11 +86,7 @@ router.post("/novo", async (req, res) => {
         const valor = req.body.valor
         const estoque_minimo = req.body.estoque_minimo
         const estoque = req.body.estoque
-        let urlImagem = imagem
-        if(req.files) {
-            excluirFoto(urlImagem)
-            urlImagem = await enviarFoto(req.files.file)
-        }
+        let urlImagem = await enviarFoto(req.files.file)
 
         await BD.query(`insert into produtos (imagem, nome_produto, valor, estoque_minimo, estoque, id_categoria) 
                             values ($1, $2, $3, $4, $5, $6)`, 
@@ -127,9 +123,16 @@ router.get('/:id/editar', async (req, res) => {
 router.post('/:id/editar', async (req, res) => {
     const { id } = req.params
     const { imagem, nome_produto, valor, estoque_minimo, estoque, id_categoria} = req.body
+    let urlImagem= imagem
+    console.log(urlImagem);
+    if (req.files) {
+        excluirFoto(urlImagem)
+        urlImagem = await enviarFoto(req.files.file)
+    }
+    console.log(urlImagem);
     
     await BD.query(`update produtos set imagem = $1, nome_produto = $2, id_categoria = $3, valor = $4, estoque_minimo = $5, estoque = $6
-                        where id_produto = $7`, [imagem, nome_produto, id_categoria, valor, estoque_minimo, estoque, id])
+                        where id_produto = $7`, [urlImagem, nome_produto, id_categoria, valor, estoque_minimo, estoque, id])
     res.redirect('/produtos')
 })
 

@@ -36,7 +36,7 @@
 
                 <!-- Aba para Editar o produto -->
                 <div class="tab-pane fade show active p-3" id="editar">
-                    <form action="/produtos/<%= produto.id_produto %>/editar" method="post" class="form">
+                    <form action="/produtos/<%= produto.id_produto %>/editar" method="post" class="form" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="imagem">Imagem do Produto (insira a URL):</label>
                             <!--nao sei usar o tipo File -->

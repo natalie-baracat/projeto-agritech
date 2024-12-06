@@ -1,180 +1,198 @@
 <%- include('../includes/header.ejs', {titulo: 'Página de Administração' }) %>
 
-    <main class="container-fluid">
+    <main class="body-dash container-fluid m-0 p-0">
 
-        <!-- Bem vindo -->
-        <div class="text-center mt-5">
-            <h1 class="display-4" id="dashboard">AgriTech</h1>
-            <span>Bem-Vindo ao Sistema AgriTech</span>
-        </div>
-
-        <!--Informativo-->
-        <section class="d-flex align-items-center w-100 mt-3">
-            <div class="d-flex flex-column w-50 p-3 gap-4">
-                <h2>Bem-vindo à AgriTech Solutions!</h2>
-                <h4 class="text-center">Olá, <%= nomeUsuario %>! Você se encontra agora na <strong>Dashboard</strong>;
-                </h4>
-                <span class="text-center">
-                    Nesta página são encontrados dados relevantes, como o número de produtos,<br>
-                    categorias e usuários cadastrados.
-                </span>
-                <h6 class="text-center">Colha mais com quem entende do campo. Cultive conosco!</h6>
-            </div>
-            </div>
-            <br>
-            <div class="banner_imagens">
-                <figure><img src="../img/mao_terra.jpg" alt=""></figure>
-                <figure><img src="../img/foto1.jpg" alt=""></figure>
-                <figure><img src="../img/foto2.jpg" alt=""></figure>
-                <figure><img src="../img/foto3.jpg" alt=""></figure>
-                <figure><img src="../img/trigo.jpg" alt=""></figure>
-                <figure><img src="../img/298c1d23e51f9d15c3a472c24b851fa8.jpg" alt=""></figure>
-                <figure><img src="../img/aa067f8ada6a1d0b1333a2e6faba9e5f.jpg" alt=""></figure>
-                <figure><img src="../img/5dcb747387bbcb7b962e24c4e2ff8c25.jpg" alt=""></figure>
-                <figure><img src="../img/b8a37985105e70064183c02f72550676.jpg" alt=""></figure>
-            </div>
+        <section class="ondas-box">    
+            <div class="onda" id="onda1"></div>
+            <div class="onda" id="onda2"></div>
+            <div class="onda" id="onda3"></div>
+            <div class="onda" id="onda4"></div>
         </section>
-        <br>
+        
+        <section style="background-color: white;">
+            <!-- Bem vindo -->
+            <div class="text-center mt-0">
+                <h1 class="jost-bolder titulo-grande-agri" id="dashboard">AgriTech</h1>
+                <span>Bem-Vindo ao Sistema AgriTech</span>
+            </div>
 
-        <!-- Cards principais com valores-->
-        <section class="row mb-4 text-center">
-            <section class="d-flex justify-content-center container-cards-info">
-                <!-- Card Total de Produtos -->
+            <!--Informativo-->
+            <section class="d-flex align-items-center w-100 mt-3">
+                <div class="d-flex flex-column w-50 p-3 gap-4"> 
+                    <br>
+                    <h2>Bem-vindo à AgriTech Solutions!</h2>
+                    <h4 class="text-center">Olá, <%= nomeUsuario %>! Você se encontra agora na <strong>Dashboard</strong>;
+                    </h4>
+                    <span class="text-center">
+                        Nesta página são encontrados dados relevantes, como a quantidade de produtos, <br>
+                        categorias, estoques qu alcançaram seu mínimo, entre outros.
+                    </span>
+                    <h5 class="text-center mb-0">Colha mais com quem entende do campo. Cultive conosco!</h6>
+                    <div class="d-flex justify-content-center">
+                        <img src="/img/logo_agritech_transparente.png" width="200px" alt="">
+                    </div>
+                </div>
+                </div>
+                <br>
+                <div class="banner_imagens">
+                    <figure><img src="../img/mao_terra.jpg" alt=""></figure>
+                    <figure><img src="../img/foto1.jpg" alt=""></figure>
+                    <figure><img src="../img/foto2.jpg" alt=""></figure>
+                    <figure><img src="../img/foto3.jpg" alt=""></figure>
+                    <figure><img src="../img/trigo.jpg" alt=""></figure>
+                    <figure><img src="../img/298c1d23e51f9d15c3a472c24b851fa8.jpg" alt=""></figure>
+                    <figure><img src="../img/aa067f8ada6a1d0b1333a2e6faba9e5f.jpg" alt=""></figure>
+                    <figure><img src="../img/5dcb747387bbcb7b962e24c4e2ff8c25.jpg" alt=""></figure>
+                    <figure><img src="../img/b8a37985105e70064183c02f72550676.jpg" alt=""></figure>
+                </div>
+            </section>
+            <br>
+
+            <!-- Cards principais com valores-->
+            <section class="row mb-3 text-center">
+                <section class="d-flex justify-content-center container-cards-info">
+                    <!-- Card Total de Produtos -->
+                    <div class="col-md-3 text-center d-flex justify-content-center">
+                        <div class="card shadow-sm card-dec width-maior">
+                            <div class="card-body">
+                                <h2 class="card-title">Total de variedade produtos</h2>
+                                <p class="card-text display-4">
+                                    <%=totalProdutos%>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <!-- Card Total de Categorias -->
                 <div class="col-md-3 text-center d-flex justify-content-center">
                     <div class="card shadow-sm card-dec width-maior">
-                        <div class="card-body">
-                            <h2 class="card-title">Total de variedade produtos</h2>
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <h2 class="card-title">Total de categorias</h2>
                             <p class="card-text display-4">
-                                <%=totalProdutos%>
+                                <%= totalCategorias%>
                             </p>
                         </div>
                     </div>
                 </div>
-            
 
-            <!-- Card Total de Categorias -->
-            <div class="col-md-3 text-center d-flex justify-content-center">
-                <div class="card shadow-sm card-dec width-maior">
-                    <div class="card-body d-flex flex-column align-items-center">
-                        <h2 class="card-title">Total de categorias</h2>
-                        <p class="card-text display-4">
-                            <%= totalCategorias%>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card Valor Total no Estoque-->
-            <div class="col-md-5 text-center d-flex justify-content-center">
-                <div class="card shadow-sm card-dec width-maior">
-                    <div class="card-body d-flex flex-column align-items-center">
-                        <h2 class="card-title">Valor total em estoque</h2>
-                        <p class="card-text display-5">R$<%= totalEstoque %>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card n de produtos com Estoque minimo-->
-            <!--<div class="col-md-3 text-center d-flex justify-content-center">
-                <div class="card shadow-sm card-dec width-maior">
-                    <div class="card-body d-flex flex-column align-items-center">
-                        <h2 class="card-title">Nº de produtos em estoque Mínimo </h2>
-                        <p class="card-text display-4">
-                            
-                        </p>
-                    </div>
-                </div>
-            </div>-->
-        </section>
-
-            <!-- cards GRAFICOS!!!! -->
-
-
-
-        <!-- exibindo produtos igual ou abaixo ao valor minimo necessario em estoque -->
-            
-        <section class="d-flex gap-4 flex-row flex-wrap justify-content-center mt-5 mb-5 margin-maior">
-            <div class="w-100">
-                <h3 class=" display-3"><a href="/produtos">Produtos</a> abaixo do estoque mínimo <b><i class="bi bi-exclamation-triangle"></i></b></h3>
-            </div>
-            <% for(let produto of produtos) { //pega todos os dados de cada linha da tabela produtos%>
-                <div class="d-flex flex-column">
-                    <div class="card d-flex card-estoque-min">
-                        <div class="container-img-card">
-                            <img src="<%= produto.imagem %>" class="imagem-card-produto" alt="produto">
+                <!-- Card Valor Total no Estoque-->
+                <div class="col-md-3 text-center d-flex justify-content-center">
+                    <div class="card shadow-sm card-dec width-maior">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <h2 class="card-title">Valor total em estoque</h2>
+                            <p class="card-text display-5">R$<%= totalEstoque %>
+                            </p>
                         </div>
-                        <div class="card-body p-3 d-flex flex-column text-align-center justify-content-center sem-pad-lado">
-                            <section class="nome d-flex justify-content-start">
-                                <h4 class="card-title titulo-produto parkinsans-semibold mb-0"><%= produto.nome_produto %></h4> <br>
-                            </section>                                
-                            <p class="card-text parkinsans-regular">Categoria: <%= produto.nome_categoria%></p>
-                            
-                            <div class="d-flex justify-content-between">
-                                <p class="card-text parkinsans-regular text-estoque-atual">Estoque Atual: <%= produto.estoque%></p>
-                                <p class="card-text parkinsans-regular">Estoque Mínimo: <%= produto.estoque_minimo%></p>
+                    </div>
+                </div>
+
+                <!-- Card n de produtos com Estoque minimo-->
+                <div class="col-md-3 text-center d-flex justify-content-center">
+                    <div class="card shadow-sm card-dec width-maior">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <h4 class="card-title">Nº de produtos em estoque Mínimo </h4>
+                            <p class="card-text display-4">5</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                <!-- cards GRAFICOS!!!! -->
+
+
+
+            <!-- exibindo produtos igual ou abaixo ao valor minimo necessario em estoque -->
+                
+            <section class="d-flex gap-4 flex-row flex-wrap justify-content-center mt-5 mb-5 margin-maior">
+                <div class="w-100">
+                    <h3 class=" display-3"><a class="text-decoration-none text-dark" href="/produtos">Produtos</a> abaixo do estoque mínimo <b><i class="bi bi-exclamation-triangle"></i></b></h3>
+                </div>
+                <% for(let produto of produtos) { //pega todos os dados de cada linha da tabela produtos%>
+                    <div class="d-flex flex-column">
+                        <div class="card d-flex card-estoque-min">
+                            <div class="container-img-card">
+                                <img src="<%= produto.imagem %>" class="imagem-card-produto" alt="produto">
+                            </div>
+                            <div class="card-body p-3 d-flex flex-column text-align-center justify-content-center sem-pad-lado">
+                                <section class="nome d-flex justify-content-start">
+                                    <h4 class="card-title titulo-produto parkinsans-semibold mb-0"><%= produto.nome_produto %></h4> <br>
+                                </section>                                
+                                <p class="card-text parkinsans-regular">Categoria: <%= produto.nome_categoria%></p>
+                                
+                                <div class="d-flex justify-content-between">
+                                    <p class="card-text parkinsans-regular text-estoque-atual">Estoque Atual: <%= produto.estoque%></p>
+                                    <p class="card-text parkinsans-regular">Estoque Mínimo: <%= produto.estoque_minimo%></p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            <% } %>
-        </section>
+                <% } %>
+            </section>
 
-        <br>
+            <br>
 
-        <div class="container-card justify-content-center d-flex flex-row mb-4">
-            <a class="text-decoration-none" href="/produtos/">
-                <!-- <div class="col-3"> -->
-                <div class="row text-center fundo1 card-fundo align-items-end">
-                    <div class=" p-4 gap-4">
-                        <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Produtos</h5>
-                    </div>
-                </div>
-            <!-- </div> -->
-            </a>
-            <a class="text-decoration-none" href="/categorias/">
-                <!-- <div class="col-3"> -->
-                <div class="row text-center fundo2 card-fundo align-items-end">
-                    <div class="p-4 gap-4">
-                        <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Categorias</h5>
-                    </div>
-                </div>
-                <!-- </div> -->
-            </a>
-            <a class="text-decoration-none" href="/usuarios/">
-                <!-- <div class="col-3"> -->
-                    <div class="row text-center fundo3 card-fundo align-items-end">
+            <div class="container-card justify-content-center d-flex flex-row mb-4">
+                <a class="text-decoration-none" href="/produtos/">
+                    <!-- <div class="col-3"> -->
+                    <div class="row text-center fundo1 card-fundo align-items-end">
                         <div class=" p-4 gap-4">
-                            <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Usuários</h5>
+                            <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Produtos</h5>
                         </div>
                     </div>
                 <!-- </div> -->
-            </a>
-        </div>
-        <br>
-
-
-        <section class="row">
+                </a>
+                <a class="text-decoration-none" href="/categorias/">
+                    <!-- <div class="col-3"> -->
+                    <div class="row text-center fundo2 card-fundo align-items-end">
+                        <div class="p-4 gap-4">
+                            <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Categorias</h5>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                </a>
+                <a class="text-decoration-none" href="/usuarios/">
+                    <!-- <div class="col-3"> -->
+                        <div class="row text-center fundo3 card-fundo align-items-end">
+                            <div class=" p-4 gap-4">
+                                <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Usuários</h5>
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                </a>
+            </div>
             <br>
-            <div class="col-6">
-                <div class="shadow-sm">
-                    <div class="card-header bg-success text-white">Valor de estoque por Categorias</div>
-                    <div class="card-body">
-                        <canvas id="barrasEstoqueCategoria"></canvas>
+
+
+            <section class="row">
+                <br>
+                <div class="col-6">
+                    <div class="shadow-sm">
+                        <div class="card-header bg-gradiente-verde text-white">Valor de estoque por Categorias</div>
+                        <div class="card-body">
+                            <canvas id="barrasEstoqueCategoria"></canvas>
+                        </div>
                     </div>
                 </div>
-            </div>
-            </div>
 
-            <div class="col-md-3">
-                <div class="shadow-sm">
-                    <div class="card-header bg-secondary text-white"> Estoque Minimo</div>
-                    <div class="card-body"></div>
-                    <canvas id="estoqueminimo" class="col-3"></canvas>
+                <div class="col-6">
+                    <div class="shadow-sm">
+                        <div class="card-header bg-gradiente-verde text-white"> Quantidade por produtos</div>
+                        <div class="card-body">
+                            <canvas id="barrasEstoqueProduto"></canvas>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
-            
+
+                <div class="col-md-3">
+                    <div class="shadow-sm">
+                        <div class="card-header bg-gradiente-verde text-white"> Estoque Minimo</div>
+                        <div class="card-body"></div>
+                        <canvas id="estoqueminimo" class="col-3"></canvas>
+                    </div>
+                </div>
+            </section>
+        </section> 
     </main>
 
     <script>
@@ -203,21 +221,47 @@
         }
     });
 
+    
+   const dadosValorEstoqueProdutos=  <%- JSON.stringify(QtdProduto) %>;
 
-    //pizza
+   const nomeProduto = dadosValorEstoqueProdutos.map(c => c.nome_Produto)
+   const qProdutos = dadosValorEstoqueProdutos.map(c => c.estoque)
+   
+   const barCtx = document.getElementById('barrasEstoqueProduto').getContext('2d');
+    new Chart(barCtx, {
+        type: 'bar',
+        data: {
+            labels: nomeProduto,
+            datasets:  [{
+               label: 'Quatidade de Produtos',
+               data: qProdutos,
+                backgroundColor:'#6f42c1'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: true },
+                tooltip: { enabled: true }
+            }
+        }
+    });
+
+
+     
     const dadovalorestoque = <%- JSON.stringify(totalEstoque) %>
-    const nomeCategoria = dadoValorEstoqueC.map(c => c.nome_categoria)
-    const dadosCategoria = dadoValorEstoque.map(c => c.total_categoria)
 
+    // const estoqueminimo = dadovalorestoque.map(c => p.estoque_minimo)
+    // const dadostotalestoque = dadovalorestoque.map(c => p.estoque)
 
 const pieCtx = document.getElementById('estoqueminimo').getContext('2d');
     new Chart(pieCtx, {
         type: 'pie',
         data: {
-            labels: ['Abaixo estoque Mínimo'],
+            labels: ['Acima estoque Mínimo, Abaixo estoque Mínimo'],
             datasets: [{
-                data: 1,
-                backgroundColor: ['#28a745', '#dc3545', '#ffc107']
+                data: [dadovalorestoque],
+                backgroundColor: ['#28a745', '#dc3545']
             }]
         },
         options: {
@@ -231,5 +275,23 @@ const pieCtx = document.getElementById('estoqueminimo').getContext('2d');
 
     </script>
     
+    <script>
+        // Seleciona as ondas pelo ID
+        var onda1 = document.getElementById('onda1');
+        var onda2 = document.getElementById('onda2');
+        var onda3 = document.getElementById('onda3');
+        var onda4 = document.getElementById('onda4');
+
+        // Adiciona o evento de scroll
+        window.addEventListener('scroll', function () {
+            var rolagemPos = window.scrollY;
+
+            // Atualiza a posição das ondas com base no scroll
+            onda1.style.backgroundPositionX = (400 + rolagemPos * 4) + 'px';
+            onda2.style.backgroundPositionX = (300 + rolagemPos * -4) + 'px';
+            onda3.style.backgroundPositionX = (200 + rolagemPos * 2) + 'px';
+            onda4.style.backgroundPositionX = (100 + rolagemPos * -2) + 'px';
+        });
+    </script>
 
     <%- include('../includes/footer.ejs') %>
