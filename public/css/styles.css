@@ -581,6 +581,14 @@ footer {
     /* padding-bottom: 0 !important; */
 }
 
+.container-conheca {
+    padding-left: 3vmax;
+}
+
+.margem-lado {
+    margin-right: 5px;
+}
+
 /* icone exibir senha */
 .eye{
     font-size: 30px;

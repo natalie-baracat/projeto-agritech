@@ -114,15 +114,15 @@
                             <div class="container-img-card">
                                 <img src="<%= produto.imagem %>" class="imagem-card-produto" alt="produto">
                             </div>
-                            <div class="card-body p-3 d-flex flex-column text-align-center justify-content-center sem-pad-lado">
+                            <div class="card-body p-3 d-flex flex-column text-align-center justify-content-start sem-pad-lado">
                                 <section class="nome d-flex justify-content-start">
-                                    <h4 class="card-title titulo-produto parkinsans-semibold mb-0"><%= produto.nome_produto %></h4> <br>
+                                    <h4 class="card-title titulo-produto jost-semibold mb-0"><%= produto.nome_produto %></h4> <br>
                                 </section>                                
-                                <p class="card-text parkinsans-regular">Categoria: <%= produto.nome_categoria%></p>
+                                <p class="card-text jost-regular">Categoria: <%= produto.nome_categoria%></p>
                                 
                                 <div class="d-flex justify-content-between">
-                                    <p class="card-text parkinsans-regular text-estoque-atual">Estoque Atual: <%= produto.estoque%></p>
-                                    <p class="card-text parkinsans-regular">Estoque Mínimo: <%= produto.estoque_minimo%></p>
+                                    <p class="card-text jost-regular text-estoque-atual">Estoque Atual: <%= produto.estoque%></p>
+                                    <p class="card-text jost-regular">Estoque Mínimo: <%= produto.estoque_minimo%></p>
                                 </div>
                             </div>
                         </div>
@@ -137,7 +137,7 @@
                     <!-- <div class="col-3"> -->
                     <div class="row text-center fundo1 card-fundo align-items-end">
                         <div class=" p-4 gap-4">
-                            <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Produtos</h5>
+                            <h5 class="texto-card-diretorio jost-bold text-white">Listagem de Produtos</h5>
                         </div>
                     </div>
                 <!-- </div> -->
@@ -146,7 +146,7 @@
                     <!-- <div class="col-3"> -->
                     <div class="row text-center fundo2 card-fundo align-items-end">
                         <div class="p-4 gap-4">
-                            <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Categorias</h5>
+                            <h5 class="texto-card-diretorio jost-bold text-white">Listagem de Categorias</h5>
                         </div>
                     </div>
                     <!-- </div> -->
@@ -155,7 +155,7 @@
                     <!-- <div class="col-3"> -->
                         <div class="row text-center fundo3 card-fundo align-items-end">
                             <div class=" p-4 gap-4">
-                                <h5 class="texto-card-diretorio parkinsans-bold text-white">Listagem de Usuários</h5>
+                                <h5 class="texto-card-diretorio jost-bold text-white">Listagem de Usuários</h5>
                             </div>
                         </div>
                     <!-- </div> -->
@@ -166,7 +166,7 @@
 
             <section class="row">
                 <br>
-                <div class="col-6">
+                <div class="col-5">
                     <div class="shadow-sm">
                         <div class="card-header bg-gradiente-verde text-white">Valor de estoque por Categorias</div>
                         <div class="card-body">
@@ -175,7 +175,7 @@
                     </div>
                 </div>
 
-                <div class="col-6">
+                <div class="col-5">
                     <div class="shadow-sm">
                         <div class="card-header bg-gradiente-verde text-white"> Quantidade por produtos</div>
                         <div class="card-body">
@@ -184,7 +184,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="shadow-sm">
                         <div class="card-header bg-gradiente-verde text-white"> Estoque Minimo</div>
                         <div class="card-body"></div>
@@ -222,13 +222,13 @@
     });
 
     
-   const dadosValorEstoqueProdutos=  <%- JSON.stringify(QtdProduto) %>;
+   const dadosValorEstoqueProdutos =  <%- JSON.stringify(QtdProduto) %>;
 
-   const nomeProduto = dadosValorEstoqueProdutos.map(c => c.nome_Produto)
-   const qProdutos = dadosValorEstoqueProdutos.map(c => c.estoque)
+   const nomeProduto = dadosValorEstoqueProdutos.map(c => c.nome_produto)
+   const qProdutos = dadosValorEstoqueProdutos.map(d => d.estoque)
    
-   const barCtx = document.getElementById('barrasEstoqueProduto').getContext('2d');
-    new Chart(barCtx, {
+   const barCtx2 = document.getElementById('barrasEstoqueProduto').getContext('2d');
+    new Chart(barCtx2, {
         type: 'bar',
         data: {
             labels: nomeProduto,
@@ -249,7 +249,8 @@
 
 
      
-    const dadovalorestoque = <%- JSON.stringify(totalEstoque) %>
+    const totalacimaestoque = <%- JSON.stringify(totalacimaestoque) %>
+    const totalabaixoestoque = <%- JSON.stringify(totalabaixoestoque) %>
 
     // const estoqueminimo = dadovalorestoque.map(c => p.estoque_minimo)
     // const dadostotalestoque = dadovalorestoque.map(c => p.estoque)
@@ -258,9 +259,9 @@ const pieCtx = document.getElementById('estoqueminimo').getContext('2d');
     new Chart(pieCtx, {
         type: 'pie',
         data: {
-            labels: ['Acima estoque Mínimo, Abaixo estoque Mínimo'],
+            labels: ['Acima estoque Mínimo', 'Abaixo estoque Mínimo'],
             datasets: [{
-                data: [dadovalorestoque],
+                data: [totalacimaestoque, totalabaixoestoque],
                 backgroundColor: ['#28a745', '#dc3545']
             }]
         },
