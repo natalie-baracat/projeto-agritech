@@ -59,5 +59,5 @@ app.use('/usuarios', verificarAutenticacao, usuariosRotas)
 //servidor
 const porta = 3000
 app.listen(porta, () => {
-    console.log(`Servidor rodando em http://192.168.0.126:${porta}`)
+    console.log(`Servidor rodando em http://localhost:${porta}`)
 })
