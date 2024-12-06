@@ -27,6 +27,9 @@ router.get('/', async(req, res) => {
     
 
     //grafico estoque produtos
+    const valor_estoque_categoria = await BD.query(`
+            select sum(valor) as total_categoria, c.nome_categoria from produtos as p 
+                inner join categorias as c on p.id_categoria = c.id_categoria group by c.nome_categoria`)
 
     const qteste1produto = await BD.query(`
         select count(*) as qnt_teste from produtos `)
@@ -57,9 +60,8 @@ router.get('/', async(req, res) => {
         //testes abaixo pra tabela de produtos estoque minimo
         produtos: buscaDadosProduto.rows,
         totalacimaestoque : qAcimaEstoque.rows[0].acima_minimo,
-        totalabaixoestoque : qAbaixoEstoque.rows[0].abaixo_minimo
-        
-        
+        totalabaixoestoque : qAbaixoEstoque.rows[0].abaixo_minimo,
+        soma_valor_categoria: valor_estoque_categoria.rows        
 
     })
 })

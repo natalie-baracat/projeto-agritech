@@ -91,49 +91,30 @@
             <!-- cards GRAFICOS!!!! -->
 
 
+
             <!-- exibindo produtos igual ou abaixo ao valor minimo necessario em estoque -->
-            <section class="card mt-4">
-                <div class="card-header bg-secondary text-white">Produtos abaixo do estoque mínimo</div>
-                <div class="card-body">
-                    <table class="table-striped dados-table">
-                        <thead>
-                            <tr>
-                                <th>Imagem</th>
-                                <th>Nome</th>
-                                <th>Categoria</th>
-                                <th>Estoque Mínimo</th>
-                                <th>Estoque Atual</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- vou ter que usar for e condicoes ejs aqui. se o estoque < estoque minimo, o produto aparece -->
-                            <% for (produto of produtos) { %>
-                                <tr>
-                                    <td class="container-td-img">
-                                        <img src="<%= produto.imagem %>" alt="imagem_produto" />
-                                    </td>
-                                    <td>
-                                        <%= produto.nome_produto %>
-                                    </td>
-                                    <td>
-                                        <%= produto.nome_categoria %>
-                                    </td>
-                                    <td>
-                                        <%= produto.estoque_minimo %>
-                                    </td>
-                                    <td>
-                                        <%= produto.estoque %>
-                                    </td>
-                                </tr>
-                            <% } %>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <section class="container-card">
-
+            <section class="d-flex gap-4 flex-row flex-wrap justify-content-center mt-5 mb-5">
+                <h3><a href="/produtos">Produtos</a> abaixo do estoque mínimo <i class="bi bi-exclamation-triangle"></i></h3>
+                <% for(let produto of produtos) { //pega todos os dados de cada linha da tabela produtos%>
+                    <div class="d-flex flex-column">
+                        <div class="card d-flex card-estoque-min">
+                            <div class="container-img-card">
+                                <img src="<%= produto.imagem %>" class="imagem-card-produto" alt="produto">
+                            </div>
+                            <div class="card-body p-3 d-flex flex-column text-align-center justify-content-center sem-pad-lado">
+                                <section class="nome d-flex justify-content-start">
+                                    <h4 class="card-title titulo-produto parkinsans-semibold mb-0"><%= produto.nome_produto %></h4> <br>
+                                </section>                                
+                                <p class="card-text parkinsans-regular">Categoria: <%= produto.nome_categoria%></p>
+                                
+                                <div class="d-flex justify-content-between">
+                                    <p class="card-text parkinsans-regular text-estoque-atual">Estoque Atual: <%= produto.estoque%></p>
+                                    <p class="card-text parkinsans-regular">Estoque Mínimo: <%= produto.estoque_minimo%></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
             </section>
 
             <br>
@@ -195,16 +176,18 @@
 
     <script>
                 
-        const dadosValorEstoqueCategoria = <%- JSON.stringify(totalProdutos) %>,
-
+   const dadosValorEstoqueCategoria = <%- JSON.stringify(soma_valor_categoria) %>;
+   const nomeCategoria = dadosValorEstoqueCategoria.map(c => c.nome_categoria)
+   const dadosCategoria = dadosValorEstoqueCategoria.map(c => c.total_categoria)
+   
    const barCtx = document.getElementById('barrasEstoqueCategoria').getContext('2d');
     new Chart(barCtx, {
         type: 'bar',
         data: {
-            labels: nome,
+            labels: nome_categoria,
             datasets:  [{
                 label: 'Valor Estoque',
-                data: qntprod,
+                data: total_categoria,
                 backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545', '#6f42c1']
             }]
         },
@@ -217,30 +200,6 @@
         }
     });
 
-
-
-    //pizza
-const aprovacaoprodutos = <%- JSON.stringify(totalEstoque) %>
-
-
-const pieCtx = document.getElementById('estoqueminimo').getContext('2d');
-    new Chart(pieCtx, {
-        type: 'pie',
-        data: {
-            labels: ['Total Produtos estoque'],
-            datasets: [{
-                data: 1,
-                backgroundColor: ['#28a745', '#dc3545', '#ffc107']
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { display: true },
-                tooltip: { enabled: true }
-            }
-        }
-    });
 
     </script>
     

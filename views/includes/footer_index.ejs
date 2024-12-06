@@ -1,22 +1,22 @@
 <Footer class="p-3">
     <div class="d-flex justify-content-evenly align-items-center">
         <div>
-            <h5 id="SobreNos">Sobre nós</h5>
-            <p>Na AgriTech, acreditamos que a inovação é a chave para um futuro agrícola sustentável <br>
+            <h5 class="scroll-reveal" id="SobreNos">Sobre nós</h5>
+            <p class="scroll-reveal">Na AgriTech, acreditamos que a inovação é a chave para um futuro agrícola sustentável <br>
                e eficiente. Fundada por um grupo de apaixonados por tecnologia e agricultura, nossa <br>
                 missão é transformar o setor agro por meio de soluções de automação inteligentes que <br>
                 aumentam a produtividade e reduzem o impacto ambiental.
             </p>
-            <p>Aqui, valorizamos a parceria com os agricultores e profissionais do setor, <br>
+            <p class="scroll-reveal">Aqui, valorizamos a parceria com os agricultores e profissionais do setor, <br>
               oferecendo suporte contínuo e treinamento para garantir que nossos clientes aproveitem <br>
               ao máximo as inovações que trazemos. Estamos comprometidos em fazer do agronegócio uma <br>
               atividade mais inteligente, conectada e sustentável.</p>
-             <p> Junte-se a nós nessa jornada rumo a um futuro agrícola mais produtivo e consciente!</p>
+             <p class="scroll-reveal"> Junte-se a nós nessa jornada rumo a um futuro agrícola mais produtivo e consciente!</p>
         </div>
       <!-- Contato -->
        <div>
-        <h5>Contato</h5>
-        <ul class="list-unstyled">
+        <h5 class="scroll-reveal" >Contato</h5>
+        <ul class="scroll-reveal list-unstyled">
           <li><i class="bi bi-geo-alt-fill me-2"></i>Rua dos Bobos, 0 - Centro</li>
           <li><i class="bi bi-telephone-fill me-2"></i>(18)****-****</li>
           <li><i class="bi bi-envelope-fill me-2"></i>contato@contato.com</li>
@@ -24,8 +24,8 @@
        </div>
       <!-- Redes Sociais -->
        <div>
-        <h5>Siga-nos</h5>
-        <ul class="list-unstyled d-flex gap-3">
+        <h5 class="scroll-reveal">Siga-nos</h5>
+        <ul class="scroll-reveal list-unstyled d-flex gap-3">
             <li><a href="" class="text-dark"><i class="bi bi-whatsapp"></i></a></li>
             <li><a href="" class="text-dark"><i class="bi bi-instagram"></i></a></li>
             <li><a href="" class="text-dark"><i class="bi bi-linkedin"></i></a></li>
@@ -34,10 +34,26 @@
     </div>
     <hr class="my-3">
     <div class="text-center mt-3">
-      <div class="text-center">
+      <div class="scroll-reveal text-center">
         <p class="text-decoration-none text-muted">&copy; 2024 Sistema AgriTech - Projeto Sesi/Senai</p>
       </div>
     </div>
   </Footer>
+
+  <script>
+    // Configuração global
+    ScrollReveal().reveal('.scroll-reveal', { 
+      distance: '50px', 
+      duration: 800, 
+      interval: 200 
+    });
+  
+    // Configuração para o carrossel
+    ScrollReveal().reveal('.carousel', { 
+      origin: 'left', 
+      delay: 400 
+    });
+  </script>
+
 </body>
 </html>

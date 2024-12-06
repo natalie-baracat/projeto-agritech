@@ -36,6 +36,32 @@
     margin: 0 10px 0 0 !important;
 }
 
+
+/* Position the text over the carousel */
+.carousel-text {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text */
+    text-align: center;
+    color: white; /* Change to your preferred text color */
+    z-index: 10; /* Ensure the text appears above the carousel */
+  }
+  
+  .carousel-text h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .carousel-text span {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+
+.carousel-item {
+    height: 700px !important;
+}
+
 .nav-link {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
@@ -262,7 +288,7 @@ h2 {
 
 .btn-edit {
     background: linear-gradient(32deg, rgba(40, 167, 69, 1) 31%, rgba(154, 204, 41, 1) 100%);
-    color: white;
+    color: white !important;
 }
 
 .btn-delete {
@@ -350,7 +376,7 @@ h2 {
 }
 
 
-/* card */
+/* card da dashboard */
 .container-card{
     display: flex;
     gap: 75px;
@@ -416,6 +442,8 @@ h2 {
     padding: 6px;
 }
 
+
+
 .foto-perfil {
     border-radius: 50% !important;
     width: 200px !important;
@@ -454,6 +482,13 @@ h2 {
     margin-bottom: 8px;
     border-radius: 5px;
 }
+
+/* card estoque min dashboard */
+.card-estoque-min {
+    width: 230px;
+    height: 300px;
+}
+
 
 /* cards produto */
 
@@ -494,6 +529,11 @@ h2 {
     color: #28a745;
 }
 
+.text-estoque-atual {
+    font-weight: 600;
+    color: #b31515;
+}
+
 
 /* cards dashbord informacoes sobre estoque */
 .container-cards-info {
@@ -520,7 +560,7 @@ h2 {
     /* Precisa ir um pouquinho pro lado, mas se colocar ele passa */
 }
 
-/* ONDAS */
+/* ONDAS
 body-dash{
     background-image: url(https://static1.funidelia.com/499355-f6_big2/fato-de-elefante-para-adulto.jpg);
     background-position: center;
@@ -576,12 +616,12 @@ section.ondas-box{
 }
 
 
-/* Carrossel ocupando 100% da altura */
-.carousel {
+Carrossel ocupando 100% da altura */
+/* .carousel {
     height: 100vh;
 }
 
 .carousel img {
     object-fit: cover;
     height: 100%;
-}
+} */

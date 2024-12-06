@@ -1,37 +1,6 @@
 
 <%- include('../includes/header_index.ejs', {titulo: 'AgriTech'}) %>
 
-
-
-  <!-- Incluindo Carrocel-->
-
-  <!-- <div id="carouselExampleIndicators" class="carousel slide carrosel-item">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="../img/tec.png" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="../img/agricultores.jpg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="../img/TRATORES-1600x900.jpg" class="d-block w-100" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div> -->
-  <!-- Carrossel -->
 <div id="carouselExampleIndicators" class="carousel slide carrosel-item">
   <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -59,24 +28,20 @@
   </button>
 </div>
 
-  <!-- Efeito Parallax com Ondas
-  <section class="ondas-box">
-    <div class="onda" id="onda1"></div>
-    <div class="onda" id="onda2"></div>
-    <div class="onda" id="onda3"></div>
-    <div class="onda" id="onda4"></div>
-</section> -->
-
-
   <main class="container-fluid">
 <!-- Recomendado -->
-<div class="text-center mt-5">
+<!-- <div class="scroll-reveal text-center mt-3 text-white">
     <h1>AgriTech</h1>
     <span>Aproveite nossos melhores produtos para o seu negócio</span>
-   </div>
+   </div> -->
 
+        <!-- AgriTech Text on Top of Carousel -->
+        <div class="carousel-text">
+          <h1>AgriTech</h1>
+          <span>Aproveite nossos melhores produtos para o seu negócio</span>
+        </div>
        <!--Produto-->
-       <section class="d-flex align-items-center w-100 mt-3">
+       <section class="scroll-reveal d-flex align-items-center w-100 ">
         <div class="d-flex flex-column w-50 p-3 gap-4 justify-content-center">
             <h2>Bem-vindo à AgriTech Solutions!</h2>
             <span>
@@ -93,7 +58,7 @@
           </div>
         </div>
         <br>
-        <div class="banner_imagens">
+        <div class="scroll-reveal banner_imagens">
           <figure><img src="../img/mao_terra.jpg" alt=""></figure>
           <figure><img src="../img/agricultores.jpg" alt=""></figure>
           <figure><img src="../img/foto2.jpg" alt=""></figure>
@@ -109,21 +74,19 @@
       <br>
 </main>
 
-<!-- <script>
-  var onda1 = document.getElementById('onda1')
-        var onda2 = document.getElementById('onda2')
-        var onda3 = document.getElementById('onda3')
-        var onda4 = document.getElementById('onda4')
+<script>
+  // Configuração global
+  ScrollReveal().reveal('.scroll-reveal', { 
+    distance: '50px', 
+    duration: 800, 
+    interval: 200 
+  });
 
-        window.addEventListener('scroll', function(){
-            var rolagemPos = window.scrollY
-
-            onda1.style.backgroundPositionX = 400 + rolagemPos * 4 + 'px'
-            onda2.style.backgroundPositionX = 300 + rolagemPos * -4 + 'px'
-            onda3.style.backgroundPositionX = 200 + rolagemPos * 2 + 'px'
-            onda4.style.backgroundPositionX = 100 + rolagemPos * -2 + 'px'
-        })
-</script> -->
+  // Configuração para o carrossel
+  ScrollReveal().reveal('.carousel', { 
+    origin: 'left', 
+    delay: 400 
+  });
+</script>
        
-
 <%- include('../includes/footer_index.ejs') %>
